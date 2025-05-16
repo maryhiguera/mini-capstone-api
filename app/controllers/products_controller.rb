@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-  def first_product
-    product = Product.first
+  def show
+    product = Product.find(params[:id])
 
     render json: product
   end
@@ -9,11 +9,5 @@ class ProductsController < ApplicationController
     products = Product.all
 
     render json: products
-  end
-
-  def second_product
-    product2 = Product.find(2)
-
-    render json: product2
   end
 end
