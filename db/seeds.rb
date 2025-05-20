@@ -17,3 +17,4 @@ i = 0
   product.save
   i += 1
 end
+

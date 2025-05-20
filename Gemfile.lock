@@ -109,6 +109,7 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    ffaker (2.24.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -366,6 +367,7 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  ffaker
   importmap-rails
   jbuilder
   kamal
