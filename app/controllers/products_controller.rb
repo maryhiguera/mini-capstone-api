@@ -11,29 +11,31 @@ class ProductsController < ApplicationController
   end
    
   def create
-    product = Product.create(
+    @product = Product.create(
       name: params["name"],
       price: params["price"],
       image_url: params["image_url"],
       description: params["description"]
     )
-    render json: product
+    render :show 
   end
 
   def update
-    product = Product.find(params[:id])
+    @product = Product.find(params[:id])
      
-    product = Product.create(
+    @product = Product.update(
       name: params["name"] || product.name,
       price: params["price"] || product.price,
       image_url: params["image_url"] || product.image_url,
       description: params["description"] || product.description
     )
-    render json: 
+    render :show
   end
 
   def destroy 
-
+    @product = Product.find(params[:id])
+    @product.destroy 
+    render json: { message: "product destroyed" }
   end
 
 end
