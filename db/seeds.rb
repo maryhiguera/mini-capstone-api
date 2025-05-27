@@ -1,20 +1,12 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-product = Product.new(name: "desk", price: 100, image_url: "desk", description: "Wood 32in")
-product.save
-
-i = 0
-5.times do
-  product = Product.new(name: "chair", price: "50#{i}", image_url: "chair", description: "tall and black")
-  product.save
-  i += 1
-end
-
+Product.create!([
+  { name: "chair", price: 500, image_url: "chair", description: "tall and black" },
+  { name: "bookshelf", price: 400, image_url: "image", description: "holds books" },
+  { name: "bed", price: 200, image_url: "desk image", description: "wood and 42in tall" },
+  { name: "mirror", price: 200, image_url: "desk image", description: "wood and 42 in tall" },
+  { name: "mirrors", price: 200, image_url: "mirror image", description: "long and gold " },
+  { name: "Black chair ", price: 60, image_url: "chair image ", description: "black chair with white cushion" },
+  { name: "white chair ", price: 504, image_url: "chair", description: "tall and black" },
+  { name: "green chair ", price: 503, image_url: "chair", description: "tall and black" },
+  { name: "green desk", price: 200, image_url: "desk image", description: "wood and 42in tall" },
+  { name: "purple desk", price: 100, image_url: "desk image", description: "wood and 42in tall" }
+])

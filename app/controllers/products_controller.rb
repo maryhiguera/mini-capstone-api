@@ -9,33 +9,43 @@ class ProductsController < ApplicationController
     @products = Product.all
     render :index
   end
-   
+
   def create
     @product = Product.create(
       name: params["name"],
-      price: params["price"],
+      price: params["price"].to_i,
       image_url: params["image_url"],
       description: params["description"]
+      supplier_id: params["supplier_id"]
     )
-    render :show 
+
+    if @product.valid?
+      render :show
+    else
+      render json: { errors: @product.errors.full_messages }
+    end
   end
 
   def update
     @product = Product.find(params[:id])
-     
-    @product = Product.update(
+
+    @product.update(
       name: params["name"] || product.name,
-      price: params["price"] || product.price,
+      price: params["price"].to_i || product.price,
       image_url: params["image_url"] || product.image_url,
       description: params["description"] || product.description
     )
-    render :show
+
+    if @product.valid?
+      render :show
+    else
+      render json: { errors: @product.errors.full_messages }
+    end
   end
 
-  def destroy 
+  def destroy
     @product = Product.find(params[:id])
-    @product.destroy 
+    @product.destroy
     render json: { message: "product destroyed" }
   end
-
 end
