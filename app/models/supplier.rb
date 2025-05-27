@@ -1,7 +1,7 @@
 class Supplier < ApplicationRecord
-  validates :name, presence: true
-  validates :email, uniqueness: true
-  validates :phone_number, presence: true
+  # validates :name, presence: true
+  # validates :email, uniqueness: true
+  # validates :phone_number, presence: true
 
   has_many :products
 
