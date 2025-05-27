@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 50 }
 
   belongs_to :supplier
+  has_many :images
 
   def full_product
     "#{price} : #{description}"
