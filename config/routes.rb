@@ -14,4 +14,16 @@ Rails.application.routes.draw do
   get "/images" => "images#index"
   get "/images/:id" => "images#show"
   post "/images" => "images#create"
+
+  get "/users" => "users#index"
+  get "/users/:id" => "users#show"
+  post "/signup" => "users#create"
+  patch "/users" => "users#update"
+
+  post "/login" => "sessions#create"
+  delete "/logout" => "sessions#destroy"
+
+  get "/orders" => "orders#index"
+  get "/orders/:id" => "orders#show"
+  post "/orders" => "orders#create"
 end

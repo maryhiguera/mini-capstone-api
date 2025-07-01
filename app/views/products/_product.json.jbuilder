@@ -7,6 +7,8 @@ json.full_product product.full_product
 json.created_at product.friendly_created_at 
 json.supplier product.supplier
 json.images product.images
+json.category_products product.category_products
+json.categories product.categories
 
 
 

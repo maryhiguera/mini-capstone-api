@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_admin, except: [ :index, :show ]
+
   def show
     @product = Product.find(params[:id])
 
@@ -6,6 +8,10 @@ class ProductsController < ApplicationController
   end
 
   def index
+    puts "--------"
+    pp current_user
+    puts "---------"
+
     @products = Product.all
     render :index
   end

@@ -4,7 +4,10 @@ class Product < ApplicationRecord
   # validates :price, numericality: { greater_than: 50 }
 
   belongs_to :supplier
-  has_many :images
+  has_many :images, dependent: :destroy
+  has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products
 
   def full_product
     "#{price} : #{description}"
@@ -13,6 +16,13 @@ class Product < ApplicationRecord
   def friendly_created_at
   created_at.strftime("%A, %d %b %Y %l:%M %p")
   end
+
+  # def categories
+  #   category_products.map do |category_product|
+  #     category_product.category
+  #   end
+  # end
+
 
   # def supplier
   #   Supplier.find_by(id: supplier_id)

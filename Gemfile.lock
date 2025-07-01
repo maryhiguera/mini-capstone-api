@@ -76,6 +76,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     bcrypt_pbkdf (1.1.1-arm64-darwin)
     bcrypt_pbkdf (1.1.1-x86_64-darwin)
@@ -109,6 +110,8 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     ffaker (2.24.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
@@ -212,6 +215,9 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.14)
+    rack-cors (3.0.0)
+      logger
+      rack (>= 3.0.14)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -366,10 +372,13 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
+  bigdecimal
   bootsnap
   brakeman
   capybara
   debug
+  faker
   ffaker
   importmap-rails
   jbuilder
@@ -377,6 +386,7 @@ DEPENDENCIES
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
+  rack-cors
   rails (~> 8.0.2)
   rubocop-rails-omakase
   seed_dump
