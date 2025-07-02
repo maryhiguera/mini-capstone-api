@@ -8,11 +8,13 @@ class ProductsController < ApplicationController
   end
 
   def index
-    puts "--------"
-    pp current_user
-    puts "---------"
+    @product = Product.all
 
-    @products = Product.all
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    end
+
     render :index
   end
 
