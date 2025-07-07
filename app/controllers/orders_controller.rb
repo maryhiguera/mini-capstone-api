@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   def index
     # figure out how to have it so a user only seeds their orders
     @orders = current_user.orders
-    render json: @orders
+    render :index
   end
 
   def create

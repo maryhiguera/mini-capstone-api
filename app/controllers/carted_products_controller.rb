@@ -2,8 +2,8 @@ class CartedProductsController < ApplicationController
   before_action :authenticate_user
 
   def index
-      @carted_products = current_user.carted_products.where(status: "carted")
-      render json: @carted_products
+      @carted_products = current_user.carted_products.where(status: "carted").includes(:product)
+      render :index
   end
 
   def create

@@ -18,6 +18,15 @@ class Product < ApplicationRecord
   created_at.strftime("%A, %d %b %Y %l:%M %p")
   end
 
+  def primary_image_url
+    if images.length > 0
+      images[0].url
+    else
+      "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+    end
+  end
+
+
   # def categories
   #   category_products.map do |category_product|
   #     category_product.category
